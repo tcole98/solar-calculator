@@ -1,0 +1,74 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "app",
+      "image": "169949819305.dkr.ecr.ap-southeast-2.amazonaws.com/tender-market:server",
+      "essential": true,
+      "memory": 200,
+      "cpu": 1,
+      "links": [
+        "redis:redis"
+        ],
+      "environment": [
+        {
+          "name": "CONTAINER_TYPE",
+          "value": "APP"
+        },
+        {
+          "name": "LOCATION",
+          "value": "PROD"
+        }
+      ]
+    },
+    {
+      "name": "proxy",
+      "image": "169949819305.dkr.ecr.ap-southeast-2.amazonaws.com/tender-market:proxy",
+      "essential": true,
+      "memory": 200,
+      "cpu": 1,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "links": [
+        "app:app"
+      ]
+    },
+    {
+      "name": "redis",
+      "image": "redis:alpine",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [{
+          "hostPort": 6379,
+          "containerPort": 6379
+      }],
+      "mountPoints": []
+    },
+    {
+      "name": "worker",
+      "image": "169949819305.dkr.ecr.ap-southeast-2.amazonaws.com/tender-market:server",
+      "essential": false,
+      "memory": 128,
+      "links": [
+          "redis:redis"
+      ],
+      "mountPoints": [],
+      "environment": [
+        {
+          "name": "CONTAINER_TYPE",
+          "value": "WORKER"
+        },
+        {
+          "name": "LOCATION",
+          "value": "PROD"
+        }
+      ]
+    }
+
+  ]
+}
