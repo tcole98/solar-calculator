@@ -11,10 +11,12 @@ db = SQLAlchemy(app)
 
 from .api.auth import auth_api
 from .api.secure_endpoint_example import secure_endpoint_api
+from .api.tender_api import tender_api
 from .views.index import index_view
 
 app.register_blueprint(auth_api.blueprint, url_prefix='/api')
 app.register_blueprint(secure_endpoint_api.blueprint, url_prefix='/api')
+app.register_blueprint(tender_api.blueprint, url_prefix='/api')
 
 app.register_blueprint(index_view)
 

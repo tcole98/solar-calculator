@@ -9,7 +9,7 @@ class User(db.Model):
     email           = db.Column(db.String())
 
     oauth_profiles  = db.relationship('OAuthProfile', backref='user', lazy='dynamic')
-    tenders         = db.relationship('Tenders', backref='user', lazy='dynamic')
+    tenders         = db.relationship('Tender', backref='user', lazy='dynamic')
 
 class OAuthProfile(db.Model):
     __tablename__ = 'oauth_profile'
@@ -31,7 +31,7 @@ class Tender(db.Model):
     city            = db.Column(db.String())
     budget          = db.Column(db.Integer())
     title           = db.Column(db.String())
-    description     = db.Column(db.Text())
+    description     = db.Column(db.Text)
 
     user_id         = db.Column(db.Integer, db.ForeignKey('user.id'))
 
