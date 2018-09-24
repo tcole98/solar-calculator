@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "app",
-      "image": "169949819305.dkr.ecr.ap-southeast-2.amazonaws.com/tender-market:server",
+      "image": "169949819305.dkr.ecr.ap-southeast-2.amazonaws.com/solar-calculator-io:server",
       "essential": true,
       "memory": 200,
       "cpu": 1,
@@ -23,7 +23,7 @@
     },
     {
       "name": "proxy",
-      "image": "169949819305.dkr.ecr.ap-southeast-2.amazonaws.com/tender-market:proxy",
+      "image": "169949819305.dkr.ecr.ap-southeast-2.amazonaws.com/solar-calculator-io:proxy",
       "essential": true,
       "memory": 200,
       "cpu": 1,
@@ -51,7 +51,7 @@
     },
     {
       "name": "worker",
-      "image": "169949819305.dkr.ecr.ap-southeast-2.amazonaws.com/tender-market:server",
+      "image": "169949819305.dkr.ecr.ap-southeast-2.amazonaws.com/solar-calculator-io:server",
       "essential": false,
       "memory": 128,
       "links": [

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-REPOSITORY_URI=169949819305.dkr.ecr.ap-southeast-2.amazonaws.com/tender-market
+REPOSITORY_URI=169949819305.dkr.ecr.ap-southeast-2.amazonaws.com/solar-calculator-io
 
 npm run build
 

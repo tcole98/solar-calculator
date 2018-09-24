@@ -4,10 +4,6 @@ import styled from 'styled-components';
 
 import { loginRequest, logout } from '../reducers/authReducer'
 
-import AuthenticatedResource from './authenticatedResourceButton.jsx'
-import LoadDataWrapper from './LoadDataWrapper.jsx'
-
-
 const mapStateToProps = (state) => {
   return {
     tender_list: state.tenderList.data,

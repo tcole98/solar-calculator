@@ -6,3 +6,4 @@
 
 .config_files/*
 /migrations/
+.node_modules/

@@ -2,88 +2,39 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import { loginRequest, logout } from '../reducers/authReducer'
-
-import AuthenticatedResource from './authenticatedResourceButton.jsx'
-import LoadDataWrapper from './LoadDataWrapper.jsx'
-import TenderTable from './tenderTable.jsx'
 import {tenderList, tenderListRequest} from "../reducers/tenderReducer";
+import LoadingSpinner from "./loadingSpinner.jsx";
 
 
 const mapStateToProps = (state) => {
   return {
-    loggedIn: (state.auth.token !== null),
     resourceData: state.authenticatedResourceData,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loginRequest: () => dispatch(loginRequest()),
-    logout:       () => dispatch(logout()),
     tenderListRequest: () => dispatch(tenderListRequest()),
   };
 };
 
-
-const HomePage = ({loginRequest, logout, loggedIn, resourceData, tender_list, tenderListRequired}) => {
-
-    if (loggedIn) {
-        var button = (
-            <Button onClick={logout}>
-                Logout
-            </Button>
-        )
-    } else {
-        var button = (
-            <Button onClick={loginRequest}>
-                Login
-            </Button>
-        )
-    }
-
-    if (tenderListRequired) {
-        var tenders = (
-            <div>
-                Loading...
-            </div>
-        )
-    } else {
-        var tenders = (
-            <TenderTable/>
-        )
-    }
-
-    if (tenderListRequest.isRequesting) {
-        var dataMessage = 'Loading...'
-    } else if (tenderListRequest.error) {
-        dataMessage = tenderListRequest.error
-    } else if (tenderListRequest.data) {
-        dataMessage = tenderListRequest.data
-    } else {
-        dataMessage = ''
-    }
-
-    if (loggedIn) {
-        return (
-                <WrapperDiv>
-                    {button}
-                    <LoadDataWrapper>
-                        <TenderTable/>
-                    </LoadDataWrapper>
-                </WrapperDiv>
-        )
-    } else {
-      return (
-          <WrapperDiv>
-            <h1>Not TenderMarket</h1>
-              {button}
-          </WrapperDiv>
-      );
+class HomePage extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+       loading: true,
+    };
   }
 
-};
+  render() {
+      return(
+          <WrapperDiv>
+              <p>Hello</p>
+          </WrapperDiv>
+      )
+  }
 
+}
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
 
 const WrapperDiv = styled.div`

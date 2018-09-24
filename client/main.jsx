@@ -11,8 +11,6 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import rootReducer from './reducers/rootReducer'
 import rootsaga  from './sagas/rootSaga'
 
-import LoadDataWrapper from './components/LoadDataWrapper.jsx'
-
 import HomePage from './components/homePage.jsx'
 
 
