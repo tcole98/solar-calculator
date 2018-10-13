@@ -1,13 +1,11 @@
 import { all } from 'redux-saga/effects'
 
-import authenticatedResourceSagas from './authenticatedResourceSagas'
-import tenderSagas from './tenderSagas'
+import newSolarCalcSaga from './solarCalcSaga'
 
 
 export default function* rootSaga() {
   yield all([
-    authenticatedResourceSagas(),
-    tenderSagas(),
+      newSolarCalcSaga(),
   ])
 }
 

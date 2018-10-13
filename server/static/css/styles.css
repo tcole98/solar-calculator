@@ -3,15 +3,37 @@
 #map {
   height: 100%;
 }
+
 /* Optional: Makes the sample page fill the window. */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #f6f9fc;
+  background-color: #FFF;
+  font-family: "Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
-h1, p, input, button {
-  font-family: 'Dosis', sans-serif;
+
+.pac-container, .pac-item {
+  font-family: "Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  box-shadow: none;
+  border-width: 1px 0 0 0;
+  border: white;
+  border-radius: 0 0 2px 2px;
+}
+
+.pac-item:hover {
+  background-color: rgba(118, 211, 58, 0.20);
+}
+
+.pac-item-selected	{
+  background-color: rgba(118, 211, 58, 0.20);
+}
+
+::selection {
+  background: #76d33a; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #76d33a; /* Gecko Browsers */
 }
 
 :focus{outline: none;}
@@ -53,7 +75,7 @@ h1, p, input, button {
   width: 30%;
   border: none;
   padding: 0;
-  background: #50d1e3;
+  background: #76d33a;
 }
 
 .address-input {
@@ -75,7 +97,7 @@ h1, p, input, button {
   height: 100%;
   border: none;
   padding: 1em;
-  background: #50d1e3;
+  background: #76d33a;
   margin: 2em auto;
   justify-content: center;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.08), 0 1px 3px rgba(0,0,0,.08);
@@ -94,49 +116,45 @@ h1, p, input, button {
 }
 
 .spinner {
-  width: 40px;
-  height: 40px;
-
-  position: relative;
-  margin: 100px auto;
-  display: flex;
-}
-
-#solar_results {
-  display: none;
-}
-
-.double-bounce1, .double-bounce2 {
+  margin: 52px auto;
   width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: #4fd1e4;
-  opacity: 0.6;
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
-  animation: sk-bounce 2.0s infinite ease-in-out;
+  text-align: center;
 }
 
-.double-bounce2 {
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s;
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #FFF;
+  margin: 0 5px;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 }
 
-@-webkit-keyframes sk-bounce {
-  0%, 100% { -webkit-transform: scale(0.0) }
-  50% { -webkit-transform: scale(1.0) }
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
 }
 
-@keyframes sk-bounce {
-  0%, 100% {
-    transform: scale(0.0);
-    -webkit-transform: scale(0.0);
-  } 50% {
-    transform: scale(1.0);
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% {
     -webkit-transform: scale(1.0);
+    transform: scale(1.0);
   }
 }
 

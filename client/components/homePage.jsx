@@ -2,19 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import {tenderList, tenderListRequest} from "../reducers/tenderReducer";
-import LoadingSpinner from "./loadingSpinner.jsx";
+import SearchBoxComponent from './searchBox.jsx'
+
+import { updatePlaceId, updateFormattedAddress, updateLocationLat, updateLocationLng } from '../reducers/solarDataReducer'
 
 
 const mapStateToProps = (state) => {
   return {
-    resourceData: state.authenticatedResourceData,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    tenderListRequest: () => dispatch(tenderListRequest()),
+      updatePlaceId: (place_id) => dispatch(updatePlaceId(place_id)),
+      updateFormattedAddress: (formatted_address) => dispatch(updateFormattedAddress(formatted_address)),
+      updateLocationLat: (location_lat) => dispatch(updateLocationLat(location_lat)),
+      updateLocationLng: (location_lng) => dispatch(updateLocationLng(location_lng)),
   };
 };
 
@@ -29,7 +32,12 @@ class HomePage extends React.Component {
   render() {
       return(
           <WrapperDiv>
-              <p>Hello</p>
+              <Overlay>
+                  <Title>Discover your solar savings — instantly.</Title>
+
+                  <SearchBoxComponent />
+
+              </Overlay>
           </WrapperDiv>
       )
   }
@@ -38,45 +46,39 @@ class HomePage extends React.Component {
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
 
 const WrapperDiv = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    background-image: url('static/media/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; 
 `;
 
-const Button = styled.button`
-    border: none;
-    outline: none;
-    white-space: nowrap;
-    display: inline-block;
-    height: 40px;
-    line-height: 40px;
-    padding: 0 14px;
-    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
-    border-radius: 4px;
-    font-size: 15px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .025em;
-    text-decoration: none;
-    transition: all .15s ease;
-    color: #fff;
-    background: #3ecf8e;
-    text-shadow: 0 1px 3px rgba(36,180,126,.4);
-    &:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+const Overlay = styled.div`
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+`;
+
+const Title = styled.h1`
+    text-align: center;
+    color: #FFF;
+    @media (min-width: 992px) {
+    font-weight: 800;
+    line-height: 70px;
+    font-size: 40px;
     }
-    &:active {
-    transform: translateY(1px);
-    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
-    }
 `;
-
-const Message = styled.div`
-  margin: 1em;
-`;
-

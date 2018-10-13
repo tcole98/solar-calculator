@@ -1,0 +1,884 @@
+[
+ {
+   "Item": 1,
+   "postcodeFrom": 0,
+   "postcodeTo": 799,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 2,
+   "postcodeFrom": 800,
+   "postcodeTo": 869,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 3,
+   "postcodeFrom": 870,
+   "postcodeTo": 879,
+   "Zone": 1,
+   "Rating": 1.622
+ },
+ {
+   "Item": 4,
+   "postcodeFrom": 880,
+   "postcodeTo": 1000,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 5,
+   "postcodeFrom": 1001,
+   "postcodeTo": 2356,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 6,
+   "postcodeFrom": 2357,
+   "postcodeTo": 2357,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 7,
+   "postcodeFrom": 2358,
+   "postcodeTo": 2384,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 8,
+   "postcodeFrom": 2385,
+   "postcodeTo": 2393,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 9,
+   "postcodeFrom": 2394,
+   "postcodeTo": 2395,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 10,
+   "postcodeFrom": 2396,
+   "postcodeTo": 2398,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 11,
+   "postcodeFrom": 2399,
+   "postcodeTo": 2399,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 12,
+   "postcodeFrom": 2400,
+   "postcodeTo": 2493,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 13,
+   "postcodeFrom": 2494,
+   "postcodeTo": 2494,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 14,
+   "postcodeFrom": 2495,
+   "postcodeTo": 2497,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 15,
+   "postcodeFrom": 2498,
+   "postcodeTo": 2410,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 16,
+   "postcodeFrom": 2411,
+   "postcodeTo": 2414,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 17,
+   "postcodeFrom": 2415,
+   "postcodeTo": 2536,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 18,
+   "postcodeFrom": 2537,
+   "postcodeTo": 2537,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 19,
+   "postcodeFrom": 2538,
+   "postcodeTo": 2544,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 20,
+   "postcodeFrom": 2545,
+   "postcodeTo": 2557,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 21,
+   "postcodeFrom": 2558,
+   "postcodeTo": 2626,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 22,
+   "postcodeFrom": 2627,
+   "postcodeTo": 2629,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 23,
+   "postcodeFrom": 2630,
+   "postcodeTo": 2630,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 24,
+   "postcodeFrom": 2631,
+   "postcodeTo": 2639,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 25,
+   "postcodeFrom": 2640,
+   "postcodeTo": 2820,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 26,
+   "postcodeFrom": 2821,
+   "postcodeTo": 2842,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 27,
+   "postcodeFrom": 2843,
+   "postcodeTo": 2872,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 28,
+   "postcodeFrom": 2873,
+   "postcodeTo": 2874,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 29,
+   "postcodeFrom": 2875,
+   "postcodeTo": 2876,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 30,
+   "postcodeFrom": 2877,
+   "postcodeTo": 2889,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 31,
+   "postcodeFrom": 2890,
+   "postcodeTo": 2897,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 32,
+   "postcodeFrom": 2898,
+   "postcodeTo": 2899,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 33,
+   "postcodeFrom": 2900,
+   "postcodeTo": 2999,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 34,
+   "postcodeFrom": 3000,
+   "postcodeTo": 3390,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 35,
+   "postcodeFrom": 3391,
+   "postcodeTo": 3398,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 36,
+   "postcodeFrom": 3399,
+   "postcodeTo": 3413,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 37,
+   "postcodeFrom": 3414,
+   "postcodeTo": 3426,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 38,
+   "postcodeFrom": 3427,
+   "postcodeTo": 3474,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 39,
+   "postcodeFrom": 3475,
+   "postcodeTo": 3514,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 40,
+   "postcodeFrom": 3515,
+   "postcodeTo": 3516,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 41,
+   "postcodeFrom": 3517,
+   "postcodeTo": 3520,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 42,
+   "postcodeFrom": 3521,
+   "postcodeTo": 3524,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 43,
+   "postcodeFrom": 3525,
+   "postcodeTo": 3538,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 44,
+   "postcodeFrom": 3539,
+   "postcodeTo": 3539,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 45,
+   "postcodeFrom": 3540,
+   "postcodeTo": 3504,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 46,
+   "postcodeFrom": 3505,
+   "postcodeTo": 3560,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 47,
+   "postcodeFrom": 3561,
+   "postcodeTo": 3569,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 48,
+   "postcodeFrom": 3570,
+   "postcodeTo": 3570,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 49,
+   "postcodeFrom": 3571,
+   "postcodeTo": 3606,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 50,
+   "postcodeFrom": 3607,
+   "postcodeTo": 3617,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 51,
+   "postcodeFrom": 3618,
+   "postcodeTo": 3622,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 52,
+   "postcodeFrom": 3623,
+   "postcodeTo": 3628,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 53,
+   "postcodeFrom": 3629,
+   "postcodeTo": 3657,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 54,
+   "postcodeFrom": 3658,
+   "postcodeTo": 3684,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 55,
+   "postcodeFrom": 3685,
+   "postcodeTo": 3687,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 56,
+   "postcodeFrom": 3688,
+   "postcodeTo": 3724,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 57,
+   "postcodeFrom": 3725,
+   "postcodeTo": 3731,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 58,
+   "postcodeFrom": 3732,
+   "postcodeTo": 3999,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 59,
+   "postcodeFrom": 4000,
+   "postcodeTo": 4416,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 60,
+   "postcodeFrom": 4417,
+   "postcodeTo": 4417,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 61,
+   "postcodeFrom": 4418,
+   "postcodeTo": 4422,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 62,
+   "postcodeFrom": 4423,
+   "postcodeTo": 4423,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 63,
+   "postcodeFrom": 4424,
+   "postcodeTo": 4426,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 64,
+   "postcodeFrom": 4427,
+   "postcodeTo": 4473,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 65,
+   "postcodeFrom": 4474,
+   "postcodeTo": 4476,
+   "Zone": 1,
+   "Rating": 1.622
+ },
+ {
+   "Item": 66,
+   "postcodeFrom": 4477,
+   "postcodeTo": 4478,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 67,
+   "postcodeFrom": 4479,
+   "postcodeTo": 4485,
+   "Zone": 1,
+   "Rating": 1.622
+ },
+ {
+   "Item": 68,
+   "postcodeFrom": 4486,
+   "postcodeTo": 4490,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 69,
+   "postcodeFrom": 4491,
+   "postcodeTo": 4492,
+   "Zone": 1,
+   "Rating": 1.622
+ },
+ {
+   "Item": 70,
+   "postcodeFrom": 4493,
+   "postcodeTo": 4499,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 71,
+   "postcodeFrom": 4500,
+   "postcodeTo": 4721,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 72,
+   "postcodeFrom": 4722,
+   "postcodeTo": 4722,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 73,
+   "postcodeFrom": 4723,
+   "postcodeTo": 4723,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 74,
+   "postcodeFrom": 4724,
+   "postcodeTo": 4735,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 75,
+   "postcodeFrom": 4736,
+   "postcodeTo": 4736,
+   "Zone": 1,
+   "Rating": 1.622
+ },
+ {
+   "Item": 76,
+   "postcodeFrom": 4737,
+   "postcodeTo": 4824,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 77,
+   "postcodeFrom": 4825,
+   "postcodeTo": 4827,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 78,
+   "postcodeFrom": 4828,
+   "postcodeTo": 4828,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 79,
+   "postcodeFrom": 4829,
+   "postcodeTo": 4829,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 80,
+   "postcodeFrom": 4830,
+   "postcodeTo": 5261,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 81,
+   "postcodeFrom": 5262,
+   "postcodeTo": 5263,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 82,
+   "postcodeFrom": 5264,
+   "postcodeTo": 5270,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 83,
+   "postcodeFrom": 5271,
+   "postcodeTo": 5300,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 84,
+   "postcodeFrom": 5301,
+   "postcodeTo": 5429,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 85,
+   "postcodeFrom": 5430,
+   "postcodeTo": 5450,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 86,
+   "postcodeFrom": 5451,
+   "postcodeTo": 5653,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 87,
+   "postcodeFrom": 5654,
+   "postcodeTo": 5669,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 88,
+   "postcodeFrom": 5670,
+   "postcodeTo": 5679,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 89,
+   "postcodeFrom": 5680,
+   "postcodeTo": 5699,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 90,
+   "postcodeFrom": 5700,
+   "postcodeTo": 5709,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 91,
+   "postcodeFrom": 5710,
+   "postcodeTo": 5722,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 92,
+   "postcodeFrom": 5723,
+   "postcodeTo": 5724,
+   "Zone": 1,
+   "Rating": 1.622
+ },
+ {
+   "Item": 93,
+   "postcodeFrom": 5725,
+   "postcodeTo": 5733,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 94,
+   "postcodeFrom": 5734,
+   "postcodeTo": 5799,
+   "Zone": 1,
+   "Rating": 1.622
+ },
+ {
+   "Item": 95,
+   "postcodeFrom": 5800,
+   "postcodeTo": 6243,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 96,
+   "postcodeFrom": 6244,
+   "postcodeTo": 6250,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 97,
+   "postcodeFrom": 6251,
+   "postcodeTo": 6254,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 98,
+   "postcodeFrom": 6255,
+   "postcodeTo": 6270,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 99,
+   "postcodeFrom": 6271,
+   "postcodeTo": 6315,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 100,
+   "postcodeFrom": 6316,
+   "postcodeTo": 6357,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 101,
+   "postcodeFrom": 6358,
+   "postcodeTo": 6393,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 102,
+   "postcodeFrom": 6394,
+   "postcodeTo": 6400,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 103,
+   "postcodeFrom": 6401,
+   "postcodeTo": 6430,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 104,
+   "postcodeFrom": 6431,
+   "postcodeTo": 6431,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 105,
+   "postcodeFrom": 6432,
+   "postcodeTo": 6433,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 106,
+   "postcodeFrom": 6434,
+   "postcodeTo": 6439,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 107,
+   "postcodeFrom": 6440,
+   "postcodeTo": 6441,
+   "Zone": 1,
+   "Rating": 1.622
+ },
+ {
+   "Item": 108,
+   "postcodeFrom": 6442,
+   "postcodeTo": 6444,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 109,
+   "postcodeFrom": 6445,
+   "postcodeTo": 6459,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 110,
+   "postcodeFrom": 6460,
+   "postcodeTo": 6467,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 111,
+   "postcodeFrom": 6468,
+   "postcodeTo": 6469,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 112,
+   "postcodeFrom": 6470,
+   "postcodeTo": 6471,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 113,
+   "postcodeFrom": 6472,
+   "postcodeTo": 6474,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 114,
+   "postcodeFrom": 6475,
+   "postcodeTo": 6506,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 115,
+   "postcodeFrom": 6507,
+   "postcodeTo": 6555,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 116,
+   "postcodeFrom": 6556,
+   "postcodeTo": 6573,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 117,
+   "postcodeFrom": 6574,
+   "postcodeTo": 6602,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 118,
+   "postcodeFrom": 6603,
+   "postcodeTo": 6607,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 119,
+   "postcodeFrom": 6608,
+   "postcodeTo": 6641,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 120,
+   "postcodeFrom": 6642,
+   "postcodeTo": 6724,
+   "Zone": 1,
+   "Rating": 1.622
+ },
+ {
+   "Item": 121,
+   "postcodeFrom": 6725,
+   "postcodeTo": 6750,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 122,
+   "postcodeFrom": 6751,
+   "postcodeTo": 6797,
+   "Zone": 1,
+   "Rating": 1.622
+ },
+ {
+   "Item": 123,
+   "postcodeFrom": 6798,
+   "postcodeTo": 6799,
+   "Zone": 2,
+   "Rating": 1.536
+ },
+ {
+   "Item": 124,
+   "postcodeFrom": 6800,
+   "postcodeTo": 6999,
+   "Zone": 3,
+   "Rating": 1.382
+ },
+ {
+   "Item": 125,
+   "postcodeFrom": 7000,
+   "postcodeTo": 8999,
+   "Zone": 4,
+   "Rating": 1.185
+ },
+ {
+   "Item": 126,
+   "postcodeFrom": 9000,
+   "postcodeTo": 9999,
+   "Zone": 3,
+   "Rating": 1.382
+ }
+]

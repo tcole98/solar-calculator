@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 
-import { authenticatedResourceData } from './authenticedResourceReducer'
-import { tenderList } from "./tenderReducer"
+import { solarCalc } from "./solarCalcReducer"
+import { solarData } from './solarDataReducer'
 
 const rootReducer = combineReducers({
-  authenticatedResourceData,
-  tenderList
+  solarCalc,
+  solarData
 });
 
 export default rootReducer;

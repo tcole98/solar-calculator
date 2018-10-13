@@ -6,12 +6,14 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { connect, Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga'
 
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { Router, Switch, Route } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
 
 import rootReducer from './reducers/rootReducer'
 import rootsaga  from './sagas/rootSaga'
 
 import HomePage from './components/homePage.jsx'
+import ResultPage from './components/resultPage.jsx'
 
 
 const sagaMiddleware = createSagaMiddleware();
@@ -30,13 +32,17 @@ const store = createStore(
 
 sagaMiddleware.run(rootsaga);
 
+export const browserHistory = createBrowserHistory({});
+
 ReactDOM.render(
   <Provider store = {store}>
-    <BrowserRouter>
+    <Router history={browserHistory}>
         <Switch>
-            <Route path="/" component={HomePage} />
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/map" component={ResultPage} />
+            <Route path="/house/" component={ResultPage} />
         </Switch>
-    </BrowserRouter>
+    </Router>
   </Provider>,
   document.getElementById('app')
 );
