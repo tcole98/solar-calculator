@@ -8,9 +8,9 @@ import {
   SOLAR_CALC_FAILURE,
 } from '../reducers/solarCalcReducer';
 
-function* newSolarCalc({place_id, address, location_lat, location_lng, address_components, roof_area}) {
+function* newSolarCalc({place_id, address, location_lat, location_lng, address_components, roof_area, roof_lat_lng}) {
     try {
-        const result = yield call(solarCalcAPI, place_id, address, location_lat, location_lng, address_components, roof_area);
+        const result = yield call(solarCalcAPI, place_id, address, location_lat, location_lng, address_components, roof_area, roof_lat_lng);
         if (result.status === 'success') {
           yield put({type: SOLAR_CALC_SUCCESS, result});
         } else {

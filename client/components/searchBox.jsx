@@ -162,7 +162,6 @@ const SearchBox = styled.div`
     border-radius: 2px;
     align-items: center;
     display: flex;
-    padding-left: 20px;
     flex-direction: row;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     justify-content: space-between;
@@ -172,11 +171,12 @@ const SearchBox = styled.div`
 `;
 
 const SearchInput = styled.input`
+    padding: 0 0 0 20px;
+    border-radius: 2px;
     color: #76d33a;
     font-size: 16px;
     width: 75%;
     height: 100%;
-    padding: 0;
     margin: 0;
     border: 0;
     text-shadow: 0px 0px 0px #000;

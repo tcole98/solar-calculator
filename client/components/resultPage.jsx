@@ -31,7 +31,7 @@ class ResultPage extends React.Component {
     };
   }
 
-  solarCalcRequest(area) {
+  solarCalcRequest(area, roofLatLng) {
       this.props.newSolarCalc({
           place_id: this.props.solarData.place_id,
           address: this.props.solarData.address,
@@ -39,6 +39,7 @@ class ResultPage extends React.Component {
           location_lng: this.props.solarData.location_lng,
           address_components: this.props.solarData.address_components,
           roof_area: area,
+          roof_lat_lng: roofLatLng,
       })
   }
 
@@ -52,6 +53,7 @@ class ResultPage extends React.Component {
           var lightOverlay = <LightOverlay />;
 
           var results = <ResultsContent styleProps={null} />;
+          var formatted_address = <FormattedAddress><Pin src="/static/media/circle.svg" />{this.props.solarData.formatted_address}</FormattedAddress>
 
       } else if (this.props.solarCalc.isRequesting) {
           mapStyle = null;
@@ -63,6 +65,7 @@ class ResultPage extends React.Component {
           darkOverlay = <DarkOverlay style={{zIndex: 1}} />;
           lightOverlay = null;
           results = <ResultsContent styleProps={{display: 'none', visibility: 'hidden', opacity: 0}} />;
+          formatted_address = null;
 
       } else {
           mapStyle = null;
@@ -70,6 +73,7 @@ class ResultPage extends React.Component {
           darkOverlay = <DarkOverlay style={{visibility: 'hidden', opacity: 0}} />;
           lightOverlay = <LightOverlay style={{visibility: 'hidden', opacity: 0}} />;
           results = <ResultsContent styleProps={{display: 'none', visibility: 'hidden', opacity: 0}} />;
+          formatted_address = null;
       }
 
       var displayMapHeader = this.props.solarCalc.success ? {display: 'none'} : null;
@@ -77,10 +81,11 @@ class ResultPage extends React.Component {
       return(
           <WrapperDiv>
               <div style={mapStyle}>
-                  <Map styleProps={displayMapHeader} resultRequest={(area) => this.solarCalcRequest(area)} />
+                  <Map styleProps={displayMapHeader} resultRequest={(area, roofLatLng) => this.solarCalcRequest(area, roofLatLng)} />
                   {loadingSpinner}
                   {darkOverlay}
                   {lightOverlay}
+                  {formatted_address}
               </div>
               {results}
           </WrapperDiv>
@@ -121,4 +126,20 @@ const LightOverlay = styled.div`
     visibility: visible;
     opacity: 1;
     transition: opacity .15s linear;
+`;
+
+const FormattedAddress = styled.p`
+    font-size: 13px;
+    position: absolute;
+    top: 0;
+    padding: 1em 2em;
+    color: #FFF;
+    font-weight: 500;
+    display: flex;
+    line-height: 27px;
+`;
+
+const Pin = styled.img`
+    height: 25px;
+    padding: 0 1em 0 0;
 `;

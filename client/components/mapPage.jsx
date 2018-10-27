@@ -23,6 +23,27 @@ const mapDispatchToProps = (dispatch) => {
   return {
   };
 };
+// todo: create polygon on map, new page e.g. /house/180-tennyson-st-elwood-vic
+// HOW TO CONSTRUCT A POLYGON ON MAP -> https://developers.google.com/maps/documentation/javascript/examples/polygon-simple
+
+// HOW TO GET CENTER
+//var bounds = new google.maps.LatLngBounds();
+// var i;
+//
+// // The Bermuda Triangle
+// var polygonCoords = [
+//   new google.maps.LatLng(25.774252, -80.190262),
+//   new google.maps.LatLng(18.466465, -66.118292),
+//   new google.maps.LatLng(32.321384, -64.757370),
+//   new google.maps.LatLng(25.774252, -80.190262)
+// ];
+//
+// for (i = 0; i < polygonCoords.length; i++) {
+//   bounds.extend(polygonCoords[i]);
+// }
+//
+// // The Center of the Bermuda Triangle - (25.3939245, -72.473816)
+// console.log(bounds.getCenter());
 
 const MapWithADrawingManager = compose(
   withProps({
@@ -68,8 +89,16 @@ class Map extends React.Component {
 
   calculateArea(e) {
     var area = google.maps.geometry.spherical.computeArea(e.overlay.getPath());
-    console.log(area);
-    this.props.resultRequest(area);
+    this.calculateRoofLatLng(e, area);
+  }
+
+  calculateRoofLatLng(e, area) {
+      let roofLatLng = [];
+      for (var i = 0; i < e.overlay.getPath().getLength(); i++) {
+          let coords = e.overlay.getPath().getAt(i).toUrlValue(5);
+          roofLatLng.push(coords)
+      }
+      this.props.resultRequest(area, roofLatLng);
   }
 
   render() {

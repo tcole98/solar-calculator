@@ -24,6 +24,8 @@ class SolarCalcAPI(MethodView):
         formatted_address = post_data.get('formatted_address')
         location_lat = post_data.get('location_lat')
         location_lng = post_data.get('location_lng')
+        # TODO: install postGIS to store roof latlng and area data
+        roof_lat_lng = post_data.get('roof_lat_lng')
         roof_area = post_data.get('roof_area')
         address_components = post_data.get('address_components')
 

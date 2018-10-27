@@ -8,6 +8,7 @@ import SavingsChart from './savingsChart.jsx'
 const mapStateToProps = (state) => {
   return {
       solarCalc: state.solarCalc,
+      solarData: state.solarData,
   };
 };
 
@@ -40,7 +41,7 @@ class ResultsContent extends React.Component {
                   <Section>
                       <SubSection>
                           <ResultTitle style={{textAlign: 'left'}}>Long Term Savings</ResultTitle>
-                          <p>Solar will save you ${this.props.solarCalc.yearlyBillSavings * 15} over the next 15 years, when compared to electricty without solar.</p>
+                          <p>Solar could save you ${this.props.solarCalc.yearlyBillSavings * 15} over the next 15 years, when compared to electricty without solar.</p>
                       </SubSection>
                       <SubSection>
                           <SavingsChart withSolar={this.props.solarCalc.avgYearlyBillsWithSolarOver15years} withoutSolar={this.props.solarCalc.avgYearlyBillsOver15Years} />
@@ -53,7 +54,7 @@ class ResultsContent extends React.Component {
                       </SubSection>
                       <SubSection>
                           <ResultTitle style={{textAlign: 'left'}}>Increase Your Homes Value</ResultTitle>
-                          <p>Solar panels would increase your homes value by an approximately ${this.props.solarCalc.increaseInHomeValue} in your suburb. People are willing to pay more for green, clean and cheaper energy.</p>
+                          <p>Solar panels could increase your homes value by an approximately ${this.props.solarCalc.increaseInHomeValue} in your suburb. People are willing to pay more for green, clean and cheaper energy.</p>
                       </SubSection>
                   </Section>
 

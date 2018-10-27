@@ -1,33 +1,39 @@
-from marshmallow import Schema, fields, validate, validates_schema, ValidationError, pre_load, pre_dump, fields
-from server import app, models
+from marshmallow import Schema, fields
 
 
-# Schemas
+class BuildingSchema(Schema):
+    id                          = fields.Int(dump_only=True)
+    created                     = fields.DateTime(dump_only=True)
 
-class UserSchema(Schema):
-    id                  = fields.Int(dump_only=True)
-    created             = fields.DateTime(dump_only=True)
+    place_id                    = fields.Str()
+    state                       = fields.Str()
+    country                     = fields.Str()
+    locality                    = fields.Str()
+    postal_code                 = fields.Str()
+    route                       = fields.Str()
+    street_number               = fields.Str()
 
-class OAuthProfileSchema(Schema):
-    id                  = fields.Int(dump_only=True)
-    created             = fields.DateTime(dump_only=True)
+    roof_area_estimation        = fields.Nested('RoofAreaEstimationSchema')
 
-class TenderSchema(Schema):
-    id                  = fields.Int(dump_only=True)
-    created             = fields.DateTime(dump_only=True)
 
-    sector              = fields.String()
-    state               = fields.String()
-    city                = fields.String()
-    budget              = fields.Int()
+class RoofAreaEstimationSchema(Schema):
+    id                          = fields.Int(dump_only=True)
+    created                     = fields.DateTime(dump_only=True)
 
-    title               = fields.String()
-    description         = fields.String()
+    area                        = fields.Float()
+    center_latitude             = fields.Float()
+    center_longitude            = fields.Float()
 
-# Schema Exports
+    estimation_points           = fields.Nested('EstimationPointsSchema')
 
-tender_schema       = TenderSchema()
-tenders_schema       = TenderSchema(many=True)
 
-user_schema         = UserSchema()
-users_schema        = UserSchema(many=True)
+class EstimationPointsSchema(Schema):
+    id                          = fields.Int(dump_only=True)
+    created                     = fields.DateTime(dump_only=True)
+
+    latitude                    = fields.Float()
+    longitude                   = fields.Float()
+
+
+building_schema     = BuildingSchema()
+buildings_schema    = BuildingSchema(many=True)
