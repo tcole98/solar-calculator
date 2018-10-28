@@ -100,7 +100,7 @@ class SearchBoxComponent extends React.Component {
                 this.props.updateSolarData({error: `We are not available in ${country} yet!`})
             }
         } else {
-            console.log('no data!')
+            this.props.updateSolarData({error: `Enter your address!`})
         }
     }
 
