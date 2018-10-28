@@ -2,20 +2,13 @@ from marshmallow import Schema, fields
 
 
 class BuildingSchema(Schema):
-    id                          = fields.Int(dump_only=True)
-    created                     = fields.DateTime(dump_only=True)
+    lat                         = fields.Float()
+    lng                         = fields.Float()
 
     place_id                    = fields.Str()
-    state                       = fields.Str()
-    country                     = fields.Str()
-    locality                    = fields.Str()
-    postal_code                 = fields.Str()
-    route                       = fields.Str()
-    street_number               = fields.Str()
+    formatted_address           = fields.Str()
 
     url                         = fields.Str()
-
-    roof_area_estimation        = fields.Nested('RoofAreaEstimationSchema')
 
 
 class RoofAreaEstimationSchema(Schema):

@@ -1,6 +1,7 @@
 import { take, fork, put, takeEvery, call, all, cancelled, cancel, race} from 'redux-saga/effects'
 
 import { solarCalcAPI } from '../api/solarCalcAPI'
+import { browserHistory } from '../main.jsx'
 
 import {
   SOLAR_CALC_REQUEST,
@@ -8,11 +9,12 @@ import {
   SOLAR_CALC_FAILURE,
 } from '../reducers/solarCalcReducer';
 
-function* newSolarCalc({formatted_address, place_id, address, location_lat, location_lng, address_components, roof_area, roof_lat_lng}) {
+function* newSolarCalc({payload}) {
     try {
-        const result = yield call(solarCalcAPI, formatted_address, place_id, address, location_lat, location_lng, address_components, roof_area, roof_lat_lng);
-        if (result.status === 'success') {
+        const result = yield call(solarCalcAPI, payload);
+        if (result.message === 'success') {
           yield put({type: SOLAR_CALC_SUCCESS, result});
+          browserHistory.push('/address/' + result.building.url)
         } else {
           yield put({type: SOLAR_CALC_FAILURE, error: result.message})
         }

@@ -39,16 +39,9 @@ export const solarCalc = (state = initialSolarCalcState, action) => {
 };
 
 // Actions
-export const newSolarCalc = ({formatted_address, place_id, address, location_lat, location_lng, address_components, roof_area, roof_lat_lng}) => (
+export const newSolarCalc = (payload) => (
     {
         type: SOLAR_CALC_REQUEST,
-        formatted_address,
-        place_id,
-        address,
-        location_lat,
-        location_lng,
-        address_components,
-        roof_area,
-        roof_lat_lng,
+        payload
     }
 );

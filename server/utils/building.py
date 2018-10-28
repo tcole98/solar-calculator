@@ -21,6 +21,7 @@ def create_new_building(lat=None, lng=None, place_id=None, state=None, country=N
     url = create_url(street_number=street_number, route=route, state=state)
 
     building = models.Building(
+        formatted_address=formatted_address,
         lat=lat,
         lng=lng,
         place_id=place_id,

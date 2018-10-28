@@ -19,8 +19,8 @@ class SolarCalcAPI(MethodView):
 
         place_id = post_data.get('place_id')
         formatted_address = post_data.get('formatted_address')
-        location_lat = post_data.get('location_lat')
-        location_lng = post_data.get('location_lng')
+        lat = post_data.get('lat')
+        lng = post_data.get('lng')
         estimation_point_list = post_data.get('roof_lat_lng')
         roof_area = post_data.get('roof_area')
         address_components = post_data.get('address_components')
@@ -28,9 +28,10 @@ class SolarCalcAPI(MethodView):
         if post_data is not None:
 
             building = create_new_building(
-                lat=location_lat,
-                lng=location_lng,
+                lat=lat,
+                lng=lng,
                 place_id=place_id,
+                formatted_address=formatted_address,
                 state=address_components['administrative_area_level_1'],
                 country=address_components['country'],
                 locality=address_components['locality'],

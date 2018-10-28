@@ -4,20 +4,15 @@ import styled from 'styled-components';
 
 import SearchBoxComponent from './searchBox.jsx'
 
-import { updatePlaceId, updateFormattedAddress, updateLocationLat, updateLocationLng } from '../reducers/solarDataReducer'
-
 
 const mapStateToProps = (state) => {
   return {
+      solarData: state.solarData,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      updatePlaceId: (place_id) => dispatch(updatePlaceId(place_id)),
-      updateFormattedAddress: (formatted_address) => dispatch(updateFormattedAddress(formatted_address)),
-      updateLocationLat: (location_lat) => dispatch(updateLocationLat(location_lat)),
-      updateLocationLng: (location_lng) => dispatch(updateLocationLng(location_lng)),
   };
 };
 
@@ -30,12 +25,14 @@ class HomePage extends React.Component {
   }
 
   render() {
+      var message = (this.props.solarData.error ? <p style={{position: 'absolute', bottom: 10, color: '#FFF', fontWeight: 500, fontSize: '20px',textAlign: 'center', padding: '0 1em'}}>😢<br/>{this.props.solarData.error}</p> : null);
       return(
           <WrapperDiv>
               <Overlay>
                   <Title>Discover your solar savings — instantly.</Title>
 
                   <SearchBoxComponent />
+                  {message}
 
               </Overlay>
           </WrapperDiv>

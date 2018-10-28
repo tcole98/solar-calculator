@@ -14,6 +14,6 @@ def map_view():
     return render_template('index.html')
 
 
-@index_view.route('/house/<address>')
+@index_view.route('/address/<address>')
 def house_result(address):
     return render_template('index.html')

@@ -6,10 +6,13 @@ import Map from './mapPage.jsx'
 import ResultsContent from './resultsContent.jsx'
 
 import { newSolarCalc } from '../reducers/solarCalcReducer'
+import {checkAddressRequest} from "../reducers/checkAddressReducer";
+import LoadingSpinner from "./loadingSpinner.jsx";
 
 
 const mapStateToProps = (state) => {
   return {
+      checkAddress: state.checkAddress,
       solarCalc: state.solarCalc,
       solarData: state.solarData,
   };
@@ -17,6 +20,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+      checkAddressRequest: (payload) => dispatch(checkAddressRequest(payload)),
       newSolarCalc: (payload) => dispatch(newSolarCalc(payload)),
   };
 };
@@ -31,65 +35,36 @@ class ResultPage extends React.Component {
     };
   }
 
-  solarCalcRequest(area, roofLatLng) {
-      this.props.newSolarCalc({
-          formatted_address: this.props.formatted_address,
-          place_id: this.props.solarData.place_id,
-          address: this.props.solarData.address,
-          location_lat: this.props.solarData.location_lat,
-          location_lng: this.props.solarData.location_lng,
-          address_components: this.props.solarData.address_components,
-          roof_area: area,
-          roof_lat_lng: roofLatLng,
-      })
+  componentDidMount() {
+      if (!this.props.solarCalc.success) {
+          let pathnames = location.pathname.split('/');
+
+          this.props.checkAddressRequest({
+              url: pathnames[pathnames.length - 1]
+          })
+      }
   }
 
   render() {
-      if (this.props.solarCalc.success) {
-          var mapStyle = {height: '70vh'};
-
-          var loadingSpinner = null;
-
-          var darkOverlay = <DarkOverlay />;
-          var lightOverlay = <LightOverlay />;
-
-          var results = <ResultsContent styleProps={null} />;
-          var formatted_address = <FormattedAddress><Pin src="/static/media/circle.svg" />{this.props.solarData.formatted_address}</FormattedAddress>
-
-      } else if (this.props.solarCalc.isRequesting) {
-          mapStyle = null;
-          loadingSpinner = <div className="spinner" style={{zIndex: 2, position: 'absolute', top: '50%', margin: 'auto'}}>
-              <div className="bounce1"></div>
-              <div className="bounce2"></div>
-              <div className="bounce3"></div>
-            </div>;
-          darkOverlay = <DarkOverlay style={{zIndex: 1}} />;
-          lightOverlay = null;
-          results = <ResultsContent styleProps={{display: 'none', visibility: 'hidden', opacity: 0}} />;
-          formatted_address = null;
-
-      } else {
-          mapStyle = null;
-          loadingSpinner = null;
-          darkOverlay = <DarkOverlay style={{visibility: 'hidden', opacity: 0}} />;
-          lightOverlay = <LightOverlay style={{visibility: 'hidden', opacity: 0}} />;
-          results = <ResultsContent styleProps={{display: 'none', visibility: 'hidden', opacity: 0}} />;
-          formatted_address = null;
-      }
-
       var displayMapHeader = this.props.solarCalc.success ? {display: 'none'} : null;
 
+      if (this.props.checkAddress.success || this.props.solarCalc.success) {
+          return (
+              <WrapperDiv>
+                  <div style={{height: '70vh'}}>
+                      <Map styleProps={displayMapHeader} resultPage={true}/>
+                      <DarkOverlay/>
+                      <LightOverlay/>
+                      <FormattedAddress><Pin src="/static/media/circle.svg"/>{this.props.solarData.formatted_address}
+                      </FormattedAddress>
+                  </div>
+                  <ResultsContent styleProps={null}/>
+              </WrapperDiv>
+          )
+      }
+
       return(
-          <WrapperDiv>
-              <div style={mapStyle}>
-                  <Map styleProps={displayMapHeader} resultRequest={(area, roofLatLng) => this.solarCalcRequest(area, roofLatLng)} />
-                  {loadingSpinner}
-                  {darkOverlay}
-                  {lightOverlay}
-                  {formatted_address}
-              </div>
-              {results}
-          </WrapperDiv>
+          <LoadingSpinner color={"#607d8b"} message={'Checking for address'}/>
       )
   }
 }

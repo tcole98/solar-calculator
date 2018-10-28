@@ -9,10 +9,9 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { browserHistory } from "../main.jsx";
 
-import {
-    updatePlaceId, updateFormattedAddress, updateLocationLat, updateLocationLng,
-    updateAddressComponents
-} from '../reducers/solarDataReducer'
+import { updateSolarData } from '../reducers/solarDataReducer'
+
+import { checkAddressRequest } from '../reducers/checkAddressReducer'
 
 const PlacesWithStandaloneSearchBox = compose(
   withProps({
@@ -81,11 +80,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      updatePlaceId: (place_id) => dispatch(updatePlaceId(place_id)),
-      updateFormattedAddress: (formatted_address) => dispatch(updateFormattedAddress(formatted_address)),
-      updateLocationLat: (location_lat) => dispatch(updateLocationLat(location_lat)),
-      updateLocationLng: (location_lng) => dispatch(updateLocationLng(location_lng)),
-      updateAddressComponents: (location_lng) => dispatch(updateAddressComponents(location_lng)),
+      checkAddressRequest: (payload) => dispatch(checkAddressRequest(payload)),
+      updateSolarData: (payload) => dispatch(updateSolarData(payload)),
   };
 };
 
@@ -97,7 +93,12 @@ class SearchBoxComponent extends React.Component {
 
     loadMap() {
         if (this.props.solarData.place_id !== null) {
-            browserHistory.push('/map')
+            let country = this.props.solarData.address_components['country'].toString();
+            if (country === 'Australia' || country === 'United States') {
+                this.props.checkAddressRequest({place_id: this.props.solarData.place_id})
+            } else {
+                this.props.updateSolarData({error: `We are not available in ${country} yet!`})
+            }
         } else {
             console.log('no data!')
         }
@@ -128,16 +129,19 @@ class SearchBoxComponent extends React.Component {
               addressDetails[addressType] = place.address_components[i][componentForm[addressType]];
           }
       }
-      this.props.updateAddressComponents(addressDetails);
+      this.props.updateSolarData({address_components: addressDetails});
     }
 
     onPlacesChanged(places) {
       this.loadAddressComponents(places[0]);
       places.map(({ place_id, formatted_address, geometry: { location } }) => {
-        this.props.updatePlaceId(place_id),
-        this.props.updateFormattedAddress(formatted_address),
-        this.props.updateLocationLat(location.lat()),
-        this.props.updateLocationLng(location.lng())},
+              this.props.updateSolarData({
+                  place_id: place_id,
+                  formatted_address: formatted_address,
+                  lat: location.lat(),
+                  lng: location.lng(),
+              })
+          }
       )
     }
 

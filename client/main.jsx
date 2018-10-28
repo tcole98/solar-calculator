@@ -14,6 +14,7 @@ import rootsaga  from './sagas/rootSaga'
 
 import HomePage from './components/homePage.jsx'
 import ResultPage from './components/resultPage.jsx'
+import Map from './components/mapPage.jsx'
 
 
 const sagaMiddleware = createSagaMiddleware();
@@ -39,8 +40,8 @@ ReactDOM.render(
     <Router history={browserHistory}>
         <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route exact path="/map" component={ResultPage} />
-            <Route path="/house/" component={ResultPage} />
+            <Route exact path="/map" component={Map} />
+            <Route path="/address/:address" component={ResultPage} />
         </Switch>
     </Router>
   </Provider>,

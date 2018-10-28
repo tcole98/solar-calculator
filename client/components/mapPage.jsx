@@ -1,3 +1,5 @@
+import {newSolarCalc} from "../reducers/solarCalcReducer";
+
 const { compose, withProps } = require("recompose");
 const {
   withScriptjs,
@@ -10,20 +12,24 @@ const { DrawingManager } = require("react-google-maps/lib/components/drawing/Dra
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import LoadingSpinner from "./loadingSpinner.jsx";
+import {browserHistory} from "../main.jsx";
 
 
 
 const mapStateToProps = (state) => {
   return {
       solarData: state.solarData,
+      solarCalc: state.solarCalc,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+      newSolarCalc: (payload) => dispatch(newSolarCalc(payload)),
   };
 };
-// todo: create polygon on map, new page e.g. /house/180-tennyson-st-elwood-vic
+// todo: create polygon on map
 // HOW TO CONSTRUCT A POLYGON ON MAP -> https://developers.google.com/maps/documentation/javascript/examples/polygon-simple
 
 // HOW TO GET CENTER
@@ -87,10 +93,17 @@ class Map extends React.Component {
     };
   }
 
+  componentDidMount() {
+      if (!this.props.solarData.place_id) {
+          browserHistory.push('/')
+      }
+  }
+
   calculateArea(e) {
     var area = google.maps.geometry.spherical.computeArea(e.overlay.getPath());
     this.calculateRoofLatLng(e, area);
   }
+
 
   calculateRoofLatLng(e, area) {
       let roofLatLng = [];
@@ -98,14 +111,32 @@ class Map extends React.Component {
           let coords = e.overlay.getPath().getAt(i).toUrlValue(5);
           roofLatLng.push(coords)
       }
-      this.props.resultRequest(area, roofLatLng);
+      this.solarCalcRequest(area, roofLatLng);
+  }
+
+  solarCalcRequest(area, roofLatLng) {
+      this.props.newSolarCalc({
+          formatted_address: this.props.solarData.formatted_address,
+          place_id: this.props.solarData.place_id,
+          address: this.props.solarData.address,
+          lat: this.props.solarData.lat,
+          lng: this.props.solarData.lng,
+          address_components: this.props.solarData.address_components,
+          roof_area: area,
+          roof_lat_lng: roofLatLng,
+      })
   }
 
   render() {
+      var darkOverlay = (this.props.solarCalc.isRequesting ? <DarkOverlay/> : null);
+      var loadingSpinner = (this.props.solarCalc.isRequesting ? <LoadingSpinner/> : null);
+
       return(
           <WrapperDiv>
               <ResultTitle style={this.props.styleProps}>Calculate Your Roof Area</ResultTitle>
-              <MapWithADrawingManager location_lat={this.props.solarData.location_lat} location_lng={this.props.solarData.location_lng} drawingMode={this.state.drawingMode} calculateArea={(e) => this.calculateArea(e)} />
+              <MapWithADrawingManager location_lat={this.props.solarData.lat} location_lng={this.props.solarData.lng} drawingMode={this.state.drawingMode} calculateArea={(e) => this.calculateArea(e)} />
+              {loadingSpinner}
+              {darkOverlay}
           </WrapperDiv>
       )
   }
@@ -136,6 +167,18 @@ const ResultTitle = styled.h1`
     line-height: 70px;
     font-size: 40px;
     }
+`;
+
+const DarkOverlay = styled.div`
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .15s linear;
 `;
 
 const Overlay = styled.div`

@@ -19,6 +19,7 @@ class Building(ModelBase):
     lat                      = db.Column(db.Float())
     lng                      = db.Column(db.Float())
 
+    formatted_address        = db.Column(db.String())
     place_id                 = db.Column(db.String())
     state                    = db.Column(db.String())
     country                  = db.Column(db.String())
