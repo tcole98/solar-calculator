@@ -2,7 +2,7 @@ from flask import Blueprint, request, make_response, jsonify, g
 from flask.views import MethodView
 
 from server import db
-from server.models import Building
+from server.models import Building, RoofAreaEstimation
 from server.schemas import building_schema
 
 building_blueprint = Blueprint('building', __name__)

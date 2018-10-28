@@ -1,7 +1,3 @@
-from server import db, models
-
-from server.utils.solar_calc_results import create_new_solar_calc_results
-
 import math
 import json
 
@@ -48,7 +44,7 @@ def calculate_solar_results(building, roof_area_estimation):
     estimate_low_price = system_cost_by_size[0]['lowPrice'] * system_size * 1000
     estimate_high_price = system_cost_by_size[0]['highPrice'] * system_size * 1000
 
-    avg_cost = int(math.floor((estimate_low_price + estimate_high_price) / 2))
+    avg_cost = math.floor((estimate_low_price + estimate_high_price) / 2)
 
     if state_result[0]['country'] == "AU":
         postcode = int(building.postal_code)
@@ -61,26 +57,26 @@ def calculate_solar_results(building, roof_area_estimation):
         stc_credits = math.floor(stc_result[0]['Rating'] * deeming_period * system_size)
         # stc_credits = Math.floor(STCresult.Rating * deemingPeriod * systemSize)
 
-        rebate = int(math.floor(stc_price * stc_credits))
+        rebate = stc_price * stc_credits
 
     elif state_result[0]['country'] is "US":
-        rebate = int(math.floor(avg_cost * 0.3))
+        rebate = math.floor(avg_cost * 0.3)
 
-    avg_cost_with_rebate = int(round(avg_cost - rebate))
+    avg_cost_with_rebate = avg_cost - rebate
 
     yearly_bill_with_solar = ((kwh_per_day - daily_solar_production) * state_result[0]['costPerKWatt']) * 365
 
-    yearly_savings = int(round(avg_yearly_bill - yearly_bill_with_solar))
-    years_to_payoff = float(round(avg_cost_with_rebate - yearly_savings, 1))
+    yearly_savings = round(avg_yearly_bill - yearly_bill_with_solar)
+    years_to_payoff = avg_cost_with_rebate - yearly_savings
 
-    increase_in_home_value = int(round(increase_home_value_per_kwh * system_size))
-    co2_displaced = int(round((kg_co2_per_kwh * daily_solar_production * 365 * 15) / 1000))
+    increse_in_home_value = round(increase_home_value_per_kwh * system_size)
+    co2_displaced = round((kg_co2_per_kwh * daily_solar_production * 365 * 15) / 1000)
 
     # 15 year bills without solar
     avg_yearly_bill_over_15_years = []
     for year in range(0, 15):
         inflation_cost = avg_yearly_bill * energy_inflation_rate * year
-        new_avg_yearly_bill = int(math.floor(avg_yearly_bill + inflation_cost))
+        new_avg_yearly_bill = math.floor(avg_yearly_bill + inflation_cost)
         avg_yearly_bill_over_15_years.append(new_avg_yearly_bill)
 
     # 15 year bills with solar
@@ -90,18 +86,15 @@ def calculate_solar_results(building, roof_area_estimation):
         new_avg_yearly_bill_with_solar = math.floor(yearly_bill_with_solar + inflation_cost_with_solar)
         avg_yearly_bill_with_solar_over_15_years.append(new_avg_yearly_bill_with_solar)
 
-    solar_is_better = True if (yearly_savings > 0) else False
-
-    new_solar_calc_results = create_new_solar_calc_results(
-        roof_area_estimation=roof_area_estimation,
-        solar_is_better=solar_is_better,
-        yearly_savings=yearly_savings,
-        years_to_payoff=years_to_payoff,
-        estimate_system_cost=avg_cost,
-        estimate_system_cost_with_rebate=avg_cost_with_rebate,
-        estimate_rebate=rebate,
-        increase_in_home_value=increase_in_home_value,
-        co2_displaced=co2_displaced
-    )
-
-    return new_solar_calc_results
+    return {
+                    'solar_is_better': True if (yearly_savings > 0) else False,
+                    'yearly_savings': yearly_savings,
+                    'years_to_payoff': years_to_payoff,
+                    'estimate_system_cost': avg_cost,
+                    'estimate_system_cost_with_rebate': avg_cost_with_rebate,
+                    'estimate_rebate': rebate,
+                    'avg_yearly_bill_over_15_years': avg_yearly_bill_over_15_years,
+                    'avg_yearly_bill_with_solar_over_15_years': avg_yearly_bill_with_solar_over_15_years,
+                    'increase_in_home_value': increse_in_home_value,
+                    'co2_displaced': co2_displaced,
+            }

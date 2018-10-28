@@ -2,7 +2,7 @@ from flask import Blueprint, request, make_response, jsonify, g
 from flask.views import MethodView
 
 from server import models, schemas
-from server.schemas import solar_calc_results_schema, building_schema
+from server.schemas import building_schema
 
 from server.utils.building import create_new_building
 from server.utils.solar_calc import calculate_solar_results
@@ -53,7 +53,7 @@ class SolarCalcAPI(MethodView):
             response_object = {
                 'message': 'success',
                 'building': building_schema.dump(building),
-                'solar_calc_outcomes': solar_calc_results_schema.dump(solar_results)
+                'solar_calc_outcomes': solar_results
             }
 
             return make_response(jsonify(response_object)), 201

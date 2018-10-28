@@ -1,6 +1,5 @@
 from server import db
 import datetime
-from sqlalchemy.dialects import postgresql
 
 
 class ModelBase(db.Model):
@@ -50,9 +49,6 @@ class RoofAreaEstimation(ModelBase):
     estimation_points       = db.relationship('EstimationPoints', backref='roof_area_estimation',
                                               lazy='dynamic', foreign_keys='EstimationPoints.roof_area_estimation_id')
 
-    solar_calc_results      = db.relationship('SolarCalcResults', backref='roof_area_estimation',
-                                              lazy='dynamic', foreign_keys='SolarCalcResults.roof_area_estimation_id')
-
 
 class EstimationPoints(ModelBase):
     """
@@ -65,23 +61,3 @@ class EstimationPoints(ModelBase):
     longitude                   = db.Column(db.Float())
 
     roof_area_estimation_id     = db.Column(db.Integer, db.ForeignKey('roof_area_estimation.id'))
-
-
-class SolarCalcResults(ModelBase):
-    """
-        Solar calc results based on roof area estimation
-    """
-    __tablename__                               = 'solar_calc_results'
-
-    yearly_savings                              = db.column(db.Integer)
-    years_to_payoff                             = db.column(db.Float())
-    estimate_system_cost                        = db.column(db.Integer)
-    estimate_system_cost_with_rebate            = db.column(db.Integer)
-    estimate_rebate                             = db.column(db.Integer)
-    increase_in_home_value                      = db.column(db.Integer)
-    co2_displaced                               = db.column(db.Integer)
-
-    solar_is_better                             = db.Column(db.Boolean, default=False)
-
-    roof_area_estimation_id                     = db.Column(db.Integer, db.ForeignKey('roof_area_estimation.id'))
-    # todo: tie this to buildings as well.
