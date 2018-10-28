@@ -50,7 +50,7 @@ const WrapperDiv = styled.div`
     align-items: center;
     flex-direction: column;
     position: relative;
-    background-image: url('static/media/background2.jpg');
+    background-image: url('static/media/background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center; 
