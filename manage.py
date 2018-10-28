@@ -17,6 +17,7 @@ class RunWorker(Command):
             worker = Worker(list(map(Queue, listen)))
             worker.work()
 
+
 manager = Manager(app)
 
 migrate = Migrate(app, db)

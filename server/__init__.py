@@ -13,7 +13,6 @@ from .api.solar_calc_api import solar_calc_blueprint
 from .views.index import index_view
 
 app.register_blueprint(solar_calc_blueprint, url_prefix='/api')
-
 app.register_blueprint(index_view)
 
 # q = Queue(connection=worker.conn)

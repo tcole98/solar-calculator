@@ -28,7 +28,7 @@ export const solarCalc = (state = initialSolarCalcState, action) => {
           estimateSystemCostWithRebate: action.result.solar_calc_outcomes.estimate_system_cost_with_rebate,
           avgYearlyBillsOver15Years: action.result.solar_calc_outcomes.avg_yearly_bill_over_15_years,
           avgYearlyBillsWithSolarOver15years: action.result.solar_calc_outcomes.avg_yearly_bill_with_solar_over_15_years,
-          increaseInHomeValue: action.result.solar_calc_outcomes.increse_in_home_value,
+          increaseInHomeValue: action.result.solar_calc_outcomes.increase_in_home_value,
           co2Displaced: action.result.solar_calc_outcomes.co2_displaced,
       };
     case SOLAR_CALC_FAILURE:
@@ -39,9 +39,10 @@ export const solarCalc = (state = initialSolarCalcState, action) => {
 };
 
 // Actions
-export const newSolarCalc = ({place_id, address, location_lat, location_lng, address_components, roof_area, roof_lat_lng}) => (
+export const newSolarCalc = ({formatted_address, place_id, address, location_lat, location_lng, address_components, roof_area, roof_lat_lng}) => (
     {
         type: SOLAR_CALC_REQUEST,
+        formatted_address,
         place_id,
         address,
         location_lat,

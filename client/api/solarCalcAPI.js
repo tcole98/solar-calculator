@@ -1,6 +1,6 @@
 import { fetchJsonp } from 'fetch-jsonp'
 
-export const solarCalcAPI = (place_id, address, location_lat, location_lng, address_components, roof_area, roof_lat_lng) => {
+export const solarCalcAPI = (formatted_address, place_id, address, location_lat, location_lng, address_components, roof_area, roof_lat_lng) => {
   return fetch('/api/solar_calc/', {
     headers: {
       'Accept': 'application/json',
@@ -8,6 +8,7 @@ export const solarCalcAPI = (place_id, address, location_lat, location_lng, addr
     },
     method: 'POST',
     body: JSON.stringify({
+        formatted_address: formatted_address,
         place_id: place_id,
         address: address,
         location_lat: location_lat,

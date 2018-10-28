@@ -33,6 +33,7 @@ class ResultPage extends React.Component {
 
   solarCalcRequest(area, roofLatLng) {
       this.props.newSolarCalc({
+          formatted_address: this.props.formatted_address,
           place_id: this.props.solarData.place_id,
           address: this.props.solarData.address,
           location_lat: this.props.solarData.location_lat,
