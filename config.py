@@ -25,3 +25,4 @@ REDIS_URL = parser['REDIS']['URI']
 TOKEN_EXPIRATION =  60 * 60 * 24 * 7 # 1 Week
 
 GOOGLE_ANALYTICS_ID = parser['GOOGLE']['ID']
+MAPS_KEY = parser['GOOGLE']['MAPS_KEY']
