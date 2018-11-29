@@ -15,7 +15,7 @@ import { checkAddressRequest } from '../reducers/checkAddressReducer'
 
 const PlacesWithStandaloneSearchBox = compose(
   withProps({
-    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCT7EJv-t4u_4-nlEH_7p9Z6ymS3pxx6Ok&v=3.exp&libraries=geometry,drawing,places",
+    googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${window.MAPS_KEY}&v=3.exp&libraries=geometry,drawing,places`,
     loadingElement: <div className="spinner">
   <div className="bounce1"></div>
   <div className="bounce2"></div>
